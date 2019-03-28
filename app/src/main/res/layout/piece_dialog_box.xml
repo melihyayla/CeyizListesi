@@ -40,14 +40,14 @@
                 android:id="@+id/pieceText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="3dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/gordita_regular"
-                android:hint="1"
+                android:hint="0"
                 android:textAlignment="center"
                 android:textSize="50sp" />
 

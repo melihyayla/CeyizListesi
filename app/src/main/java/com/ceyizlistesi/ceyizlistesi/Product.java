@@ -81,6 +81,17 @@ public class Product extends AppCompatActivity {
         final LinearLayout productNameLinear  = mView.findViewById(R.id.product_name_linear_layout) ;
         final LinearLayout productNumber = mView.findViewById(R.id.product_number_linear_layout);
         final LinearLayout priceNumber = mView.findViewById(R.id.price_linear_layout);
+        final LinearLayout detailPage = mView.findViewById(R.id.detail_page_linear);
+
+        detailPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Product.this, ProductDetail.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         final EditText productNameEditText, priceEditText;
         ImageView decreaseButton, increaseButton, closeButton;
         Button saveButton;
