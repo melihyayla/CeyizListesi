@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Ceyiz Listesi</string>
+
+    <string name="slider_description">Çeyiz toplama vakti gelip çattıysa illaki bir yardımcıya ihtiyacın olacak.
+        Bu zor görevi başarabilmek için sihirli değneğimizle sana yardımcı olacağız.</string>
+
+    <string name="slider_title">Harika Bir Yardımcı </string>
+</resources>

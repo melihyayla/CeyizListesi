@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@android:color/transparent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="320dp"
+        android:layout_gravity="clip_horizontal|center|center_vertical"
+        android:background="@drawable/dialog_box_bg"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_barcode" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/gordita_medium"
+            android:text="Fiyat Bilgisi"
+            android:textColor="@color/dusk"
+            android:textSize="16sp" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/gordita_regular"
+            android:lineSpacingExtra="9sp"
+            android:text="Bu ürünün fiyatı nedir? (Türk Lirası)"
+            android:textColor="@color/dusk"
+            android:textSize="13sp"
+
+            />
+
+        <LinearLayout
+            android:id="@+id/price_linear_layout"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:background="@drawable/linear_layout_bg"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+
+            <EditText
+                android:id="@+id/price_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/gordita_regular"
+                android:hint="Fiyat Bilgisi(₺)"
+                android:inputType="number"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/price_trash_image_view"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="10dp"
+
+            android:src="@drawable/ic_trash" />
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/close_button"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="160dp"
+        android:src="@drawable/ic_cancel" />
+
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="310dp"
+        android:background="@drawable/linear_layout_purple_button"
+        android:fontFamily="@font/gordita_bold"
+        android:gravity="center"
+        android:text="KAYDET"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
+</FrameLayout>
