@@ -27,8 +27,11 @@ public class ProductDetail extends AppCompatActivity implements CompoundButton.O
     EditText informationEditText;
     Switch privacySwitch;
     Boolean checkedFlag = false;
-    LinearLayout addPictureLinearLayout, pieceLinearLayout, priceLinearLayout, switchLayout, parentLayout;
+    LinearLayout addPictureLinearLayout, pieceLinearLayout, priceLinearLayout, switchLayout, parentLayout,
+            rowLinearLayout,priceRow,pieceRow;
     int piece, price;
+    TextView pieceTextView,priceTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +47,11 @@ public class ProductDetail extends AppCompatActivity implements CompoundButton.O
         switchLayout = findViewById(R.id.switch_layout_user);
         demoView = findViewById(R.id.demo_image_view);
         parentLayout = findViewById(R.id.product_detail_parent);
-
+        rowLinearLayout = findViewById(R.id.rows_linear_layout);
+        priceRow = findViewById(R.id.price_row);
+        pieceRow = findViewById(R.id.piece_row);
+        pieceTextView = findViewById(R.id.piece_textView);
+        priceTextView = findViewById(R.id.price_textView);
 
         parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +59,10 @@ public class ProductDetail extends AppCompatActivity implements CompoundButton.O
                 hideSoftKeyboard(ProductDetail.this);
             }
         });
+
+        rowLinearLayout.setVisibility(View.GONE);
+        pieceRow.setVisibility(View.GONE);
+        priceRow.setVisibility(View.GONE);
 
 
         privacySwitch.setOnCheckedChangeListener(this);
@@ -93,6 +104,27 @@ public class ProductDetail extends AppCompatActivity implements CompoundButton.O
             @Override
             public void onClick(View view) {
                 createPieceDialogBox(0);
+            }
+        });
+
+        priceLinearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createPriceDialogBox(2);
+            }
+        });
+
+        priceRow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createPriceDialogBox(price);
+            }
+        });
+
+        pieceRow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createPieceDialogBox(piece);
             }
         });
 
@@ -147,7 +179,7 @@ public class ProductDetail extends AppCompatActivity implements CompoundButton.O
         final AlertDialog dialog = builder.create();
 
 
-        ImageView decreaseButton, increaseButton, closeButton;
+        ImageView decreaseButton, increaseButton, closeButton, trashButton;
         Button saveButton;
         final TextView pieceText = mView.findViewById(R.id.pieceText);
 
@@ -158,12 +190,22 @@ public class ProductDetail extends AppCompatActivity implements CompoundButton.O
         saveButton = mView.findViewById(R.id.save_button);
         decreaseButton = mView.findViewById(R.id.decrease_button);
         increaseButton = mView.findViewById(R.id.increase_button);
-
+        trashButton = mView.findViewById(R.id.piece_trash_image_view);
         closeButton = mView.findViewById(R.id.close_button);
 
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        trashButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pieceLinearLayout.setVisibility(View.VISIBLE);
+                pieceRow.setVisibility(View.GONE);
+                piece=0;
                 dialog.dismiss();
             }
         });
@@ -205,10 +247,13 @@ public class ProductDetail extends AppCompatActivity implements CompoundButton.O
         pieceText.setText(""+piece);
 
 
-
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rowLinearLayout.setVisibility(View.VISIBLE);
+                pieceRow.setVisibility(View.VISIBLE);
+                pieceLinearLayout.setVisibility(View.GONE);
+                pieceTextView.setText(String.valueOf(piece+" adet"));
                 dialog.dismiss();
             }
         });
@@ -219,4 +264,70 @@ public class ProductDetail extends AppCompatActivity implements CompoundButton.O
 
     }
 
+    public void createPriceDialogBox(int newPrice){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View mView = getLayoutInflater().inflate(R.layout.price_dialog_box,null);
+
+        builder.setView(mView);
+        final AlertDialog dialog = builder.create();
+
+
+        ImageView trashButton, closeButton;
+        Button saveButton;
+
+        final EditText priceEditText = mView.findViewById(R.id.price_edit_text);
+
+        String str = String.valueOf(newPrice);
+        priceEditText.setText(str);
+
+
+        saveButton = mView.findViewById(R.id.save_button);
+        closeButton = mView.findViewById(R.id.close_button);
+        trashButton  = mView.findViewById(R.id.price_trash_image_view);
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!priceEditText.getText().toString().isEmpty())
+                price =  Integer.parseInt(priceEditText.getText().toString());
+
+                rowLinearLayout.setVisibility(View.VISIBLE);
+                priceRow.setVisibility(View.VISIBLE);
+                priceTextView.setText(String.valueOf(price+" ₺"));
+                priceLinearLayout.setVisibility(View.GONE);
+                dialog.dismiss();
+
+            }
+        });
+
+        trashButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                price = 0;
+                priceRow.setVisibility(View.GONE);
+                priceLinearLayout.setVisibility(View.VISIBLE);
+                dialog.dismiss();
+            }
+        });
+
+        Log.i("Price tag"," " + price);
+
+
+        Log.i("Piece tag"," " + piece);
+
+        dialog.show();
+
+
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+    }
 }

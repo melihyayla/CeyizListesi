@@ -303,7 +303,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_layout"
+                android:id="@+id/rows_linear_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -311,11 +311,11 @@
                 android:visibility="visible">
 
                 <LinearLayout
-                    android:background="@drawable/linear_layout_product"
                     android:id="@+id/piece_row"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_margin="10dp"
+                    android:background="@drawable/linear_layout_product"
                     android:orientation="horizontal">
 
                     <TextView
@@ -344,11 +344,11 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:background="@drawable/linear_layout_product"
-                    android:id="@+id/prie_row"
+                    android:id="@+id/price_row"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_margin="10dp"
+                    android:background="@drawable/linear_layout_product"
                     android:orientation="horizontal">
 
                     <TextView
