@@ -33,6 +33,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
+                android:focusableInTouchMode="true"
                 android:clickable="false"
                 android:orientation="horizontal">
 
@@ -128,6 +129,54 @@
                     android:textSize="12sp" />
             </LinearLayout>
 
+            <HorizontalScrollView
+                android:id="@+id/pictures_scrollview"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_margin="5dp"
+                        android:id="@+id/pictures_linear_layout"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/add_new_picture_linear_layout"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/dotted_line_background"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:clickable="false"
+                            android:src="@drawable/ic_add_photo" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -155,11 +204,7 @@
                     android:textSize="16sp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:focusable="true"
-                android:focusableInTouchMode="true"></LinearLayout>
+
 
             <EditText
                 android:id="@+id/product_information"
@@ -204,7 +249,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
@@ -276,27 +321,6 @@
                         android:textAlignment="center"
                         android:textColor="@color/dusk"
                         android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linear_layout_image_demo"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/linear_layout_product"
-                    android:orientation="vertical"
-                    android:visibility="visible">
-
-                    <ImageView
-                        android:id="@+id/demo_image_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:layout_margin="5dp"
-                        android:clickable="false"
-                        android:src="@drawable/ic_barcode" />
-
-
                 </LinearLayout>
 
 

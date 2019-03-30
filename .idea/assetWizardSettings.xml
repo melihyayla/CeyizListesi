@@ -3,6 +3,11 @@
   <component name="WizardSettings">
     <option name="children">
       <map>
+        <entry key="imageWizard">
+          <value>
+            <PersistentState />
+          </value>
+        </entry>
         <entry key="vectorWizard">
           <value>
             <PersistentState>
@@ -30,11 +35,11 @@
                           <map>
                             <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ff6184" />
-                            <entry key="height" value="22" />
-                            <entry key="outputName" value="ic_trash" />
+                            <entry key="height" value="34" />
+                            <entry key="outputName" value="ic_trash_photo" />
                             <entry key="overrideSize" value="true" />
-                            <entry key="sourceFile" value="C:\Users\melih\Desktop\Ceyiz Listesi\trash.svg" />
-                            <entry key="width" value="18" />
+                            <entry key="sourceFile" value="C:\Users\melih\Desktop\Ceyiz Listesi\trashphoto.svg" />
+                            <entry key="width" value="34" />
                           </map>
                         </option>
                       </PersistentState>
