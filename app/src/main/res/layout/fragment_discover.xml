@@ -1,23 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/add_icon_center"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:src="@drawable/ic_plus_center" />
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
+        android:layout_margin="5dp" >
+        
+        <LinearLayout
+            android:id="@+id/parentLinear"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="40dp"
-            android:text="Discover Fragment"
-            android:textSize="25sp" />
+                <LinearLayout
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+                    <FrameLayout
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:layout_width="50dp"
+                        android:layout_height="35dp">
 
-    </LinearLayout>
+                        <ImageView
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/ic_add_friend"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp" />
 
-</RelativeLayout>
+                        <TextView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_gravity="bottom"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginRight="50dp"
+                            android:background="@drawable/notification_circle"
+                            android:fontFamily="@font/gordita_bold"
+                            android:text="2"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="10sp" />
+
+                    </FrameLayout>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_search"
+                    android:layout_width="0dp"
+                    android:layout_height="20dp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:fontFamily="@font/gordita_bold"
+                android:textColor="@color/dusk"
+                android:letterSpacing="-0.01"
+                android:text="Çeyiz Serme"
+
+                />
+
+            
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+</FrameLayout>

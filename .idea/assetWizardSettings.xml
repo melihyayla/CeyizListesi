@@ -35,11 +35,11 @@
                           <map>
                             <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ff6184" />
-                            <entry key="height" value="34" />
-                            <entry key="outputName" value="ic_trash_photo" />
+                            <entry key="height" value="94" />
+                            <entry key="outputName" value="ic_plus_center" />
                             <entry key="overrideSize" value="true" />
-                            <entry key="sourceFile" value="C:\Users\melih\Desktop\Ceyiz Listesi\trashphoto.svg" />
-                            <entry key="width" value="34" />
+                            <entry key="sourceFile" value="C:\Users\Melih\Desktop\Yeni klasör (5)\plus.svg" />
+                            <entry key="width" value="94" />
                           </map>
                         </option>
                       </PersistentState>
