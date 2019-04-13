@@ -38,6 +38,8 @@ public class Product extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
 
+
+
         String str = getIntent().getStringExtra("Value");
         id = 0;
         price=0 ;
@@ -53,7 +55,7 @@ public class Product extends AppCompatActivity {
         progressBar.setProgress(25);
 
 
-        checked = getResources().getDrawable(R.drawable.ic_check);
+        checked = getResources().getDrawable(R.drawable.ic_added);
         unchecked = getResources().getDrawable(R.drawable.ic_add);
         detail_arrow = getResources().getDrawable(R.drawable.ic_detail_arrow);
 
@@ -68,6 +70,7 @@ public class Product extends AppCompatActivity {
                 //startActivity(intent);
 
                 createDialogBox();
+
             }
         });
 
@@ -212,6 +215,7 @@ public class Product extends AppCompatActivity {
                 intent.putExtra("price", price);
                 intent.putExtra("piece", piece);
                 intent.putExtra("productName", productName);
+                finish();
 
                 startActivity(intent);
                 dialog.dismiss();

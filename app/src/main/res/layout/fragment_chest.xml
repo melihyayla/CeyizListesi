@@ -57,12 +57,18 @@
                     android:layout_margin="5dp"
                     android:orientation="horizontal">
 
+
+                    <FrameLayout
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+
                     <LinearLayout
                         android:id="@+id/linear_layout_washing_machine"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="170dp"
                         android:layout_margin="5dp"
-                        android:layout_weight="1"
                         android:background="@drawable/linear_layout_border"
                         android:orientation="vertical"
                         android:weightSum="1">
@@ -113,23 +119,33 @@
                             android:textColor="@color/white"
                             android:textSize="14sp" />
 
+                    </LinearLayout>
+
                         <ProgressBar
+
                             android:id="@+id/progressBarWashingMachine"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="match_parent"
-                            android:layout_height="6dp"
-                            android:layout_marginTop="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:progressDrawable="@drawable/progress_bar_bg_red" />
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_height="5dp"
+                            android:layout_gravity="bottom"
+                            android:progressDrawable="@drawable/progress_bar_bg_red"/>
 
-                    </LinearLayout>
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
 
                     <LinearLayout
                         android:id="@+id/linear_layout_electric"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="170dp"
                         android:layout_margin="5dp"
-                        android:layout_weight="1"
                         android:background="@drawable/linear_layout_border"
                         android:orientation="vertical"
                         android:weightSum="1">
@@ -180,16 +196,22 @@
                             android:textColor="@color/white"
                             android:textSize="14sp" />
 
+                    </LinearLayout>
+
                         <ProgressBar
                             android:id="@+id/progressBarElectric"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="match_parent"
-                            android:layout_height="6dp"
-                            android:layout_marginTop="0dp"
-                            android:layout_marginBottom="0dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_height="5dp"
+                            android:layout_gravity="bottom"
                             android:progressDrawable="@drawable/progress_bar_bg_red" />
 
-                    </LinearLayout>
+
+
+                    </FrameLayout>
 
                 </LinearLayout>
 
@@ -204,12 +226,16 @@
                     android:orientation="horizontal">
 
 
+                    <FrameLayout
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
                     <LinearLayout
                         android:id="@+id/linear_layout_furniture"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="170dp"
                         android:layout_margin="5dp"
-                        android:layout_weight="1"
                         android:background="@drawable/linear_layout_border"
                         android:orientation="vertical"
                         android:weightSum="1">
@@ -260,23 +286,34 @@
                             android:textColor="@color/white"
                             android:textSize="14sp" />
 
+
+
+                    </LinearLayout>
+
                         <ProgressBar
                             android:id="@+id/progressBarFurnite"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="match_parent"
-                            android:layout_height="6dp"
-                            android:layout_marginTop="0dp"
-                            android:layout_marginBottom="0dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_height="5dp"
+                            android:layout_gravity="bottom"
                             android:progressDrawable="@drawable/progress_bar_bg_red" />
+                    </FrameLayout>
 
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/linear_layout_curtain"
+                    <FrameLayout
+                        android:layout_weight="1"
                         android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+
+                        <LinearLayout
+                        android:id="@+id/linear_layout_curtain"
+
                         android:layout_height="170dp"
                         android:layout_margin="5dp"
-                        android:layout_weight="1"
+                        android:layout_width="match_parent"
                         android:background="@drawable/linear_layout_border"
                         android:orientation="vertical"
                         android:weightSum="1">
@@ -327,16 +364,20 @@
                             android:textColor="@color/white"
                             android:textSize="14sp" />
 
+                    </LinearLayout>
+
                         <ProgressBar
                             android:id="@+id/progressBarCurtain"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="match_parent"
-                            android:layout_height="6dp"
-                            android:layout_marginTop="0dp"
-                            android:layout_marginBottom="0dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_height="5dp"
+                            android:layout_gravity="bottom"
                             android:progressDrawable="@drawable/progress_bar_bg_red" />
 
-                    </LinearLayout>
+                    </FrameLayout>
 
                 </LinearLayout>
             </LinearLayout>

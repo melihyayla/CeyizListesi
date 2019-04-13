@@ -17,11 +17,13 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    LinearLayout mailAdressLinearLayout, passwordLinearLayout;
+    LinearLayout mailAdressLinearLayout, passwordLinearLayout, button_linear;
     EditText mailEditText, passwordEditText;
     ImageView eyeActiveImageView;
     Boolean flag = true;
@@ -110,7 +112,7 @@ public class SignUpActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Toast.makeText(SignUpActivity.this, "Clikced", Toast.LENGTH_SHORT).show();
             }
         });
 
