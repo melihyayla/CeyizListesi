@@ -14,22 +14,36 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.ceyizlistesi.ceyizlistesi.MainActivity;
 import com.ceyizlistesi.ceyizlistesi.Product;
 import com.ceyizlistesi.ceyizlistesi.ProductDetail;
 import com.ceyizlistesi.ceyizlistesi.R;
 
 public class DiscoverFragment extends Fragment {
+    ImageView add_plus_icon;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_discover,container,false);
+
+        add_plus_icon = view.findViewById(R.id.add_icon_center);
+
+
+        //mainActivity.isNetworkAvailable()){
+        if(((MainActivity)getActivity()).isNetworkAvailable()){
+            add_plus_icon.setVisibility(View.VISIBLE);
+        }
+        else
+            add_plus_icon.setVisibility(View.GONE);
 
         return view;
     }
 
 
 
-    public void createProduct(LinearLayout parent, final String myProductName, final int myPiece, final int myPrice){
+    public void createImageProduct(LinearLayout parent, final String myProductName, final int myPiece, final int myPrice){
 
         final float scale = getContext().getResources().getDisplayMetrics().density;
         int pixels = (int) (40 * scale + 0.5f);
