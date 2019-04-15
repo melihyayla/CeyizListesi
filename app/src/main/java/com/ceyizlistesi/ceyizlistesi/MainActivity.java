@@ -48,13 +48,13 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(3).setIcon(R.drawable.selector_user);
 
 
-        if (isNetworkAvailable()) {
-            Toast.makeText(MainActivity.this, "Internet connection established", Toast.LENGTH_SHORT)
-                    .show();
-        } else {
-            createDialogBox();
+        //if (isNetworkAvailable()) {
+         //   Toast.makeText(MainActivity.this, "Internet connection established", Toast.LENGTH_SHORT)
+         //           .show();
+       // } else {
+        //    createDialogBox();
 
-        }
+        //}
 
         
     }
