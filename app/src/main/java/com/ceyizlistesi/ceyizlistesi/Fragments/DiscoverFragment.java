@@ -53,12 +53,7 @@ public class DiscoverFragment extends Fragment {
             }
         });
 
-        if(((MainActivity)getActivity()).isNetworkAvailable()){
-            add_plus_icon.setVisibility(View.VISIBLE);
-            connectionLinearLayout.setVisibility(View.GONE);
-            scrollViewFeed.setEnabled(true);
-
-        }
+        checkInternetConnection();
 
 
         return view;

@@ -53,7 +53,7 @@
             android:layout_height="50dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:background="@drawable/linear_layout_purple_button"
+            android:background="@drawable/confirm_cancel_bg"
             android:fontFamily="@font/gordita_bold"
             android:gravity="center"
             android:text="IPTAL"
