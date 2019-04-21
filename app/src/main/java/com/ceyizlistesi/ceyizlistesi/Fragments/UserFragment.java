@@ -26,7 +26,7 @@ public class UserFragment extends Fragment {
 
 
         sign_in_button = view.findViewById(R.id.sign_in_button);
-        sign_up_button = view.findViewById(R.id.sign_up_button);
+        sign_up_button = view.findViewById(R.id.reset_password);
 
 
         sign_in_button.setOnClickListener(new View.OnClickListener() {

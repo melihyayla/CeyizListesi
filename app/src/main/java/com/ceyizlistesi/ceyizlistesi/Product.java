@@ -1,6 +1,7 @@
 package com.ceyizlistesi.ceyizlistesi;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -15,6 +16,8 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EdgeEffect;
 import android.widget.EditText;
@@ -89,6 +92,22 @@ public class Product extends AppCompatActivity {
         final LinearLayout productNumber = mView.findViewById(R.id.product_number_linear_layout);
         final LinearLayout priceNumber = mView.findViewById(R.id.price_linear_layout);
         final LinearLayout detailPage = mView.findViewById(R.id.detail_page_linear);
+        final LinearLayout background = mView.findViewById(R.id.background_linear_layout);
+
+
+        background.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                InputMethodManager im = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+
+                InputMethodManager iM = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+
+               //inputMethodManager.hideSoftInputFromWindos activity.getCurrentFocus().getWindowToken(), 0);
+
+                im.hideSoftInputFromWindow(dialog.getWindow().getDecorView().getWindowToken(), 0);
+            }
+        });
+
 
 
 
@@ -234,7 +253,8 @@ public class Product extends AppCompatActivity {
         final float scale = getApplicationContext().getResources().getDisplayMetrics().density;
         int pixels = (int) (40 * scale + 0.5f);
         int pixels2 = (int) (25 * scale + 0.5f);
-
+        int pixels3 = (int) (17 * scale + 0.5f);
+        int pixel0 = (int) (0* scale + 0.5f);
 
         final LinearLayout newProduct = new LinearLayout(this);
 
@@ -250,12 +270,20 @@ public class Product extends AppCompatActivity {
 
         final ImageView imageView = new ImageView(getApplicationContext());
         imageView.setImageDrawable(unchecked);
-        final LinearLayout.LayoutParams imageParams    = new LinearLayout.LayoutParams( pixels2 , pixels2);
-        layoutParams.setMargins(15,10,15,10);
-        layoutParams.weight = 1;
-        imageView.setLayoutParams(imageParams);
-        final LinearLayout.LayoutParams productsParams    = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
+        final ImageView imageView3 = new ImageView(getApplicationContext());
+        imageView3.setImageDrawable(getResources().getDrawable(R.drawable.ic_password));
+
+        final LinearLayout.LayoutParams imageParams    = new LinearLayout.LayoutParams( pixel0 , pixels2);
+        imageParams.setMargins(5,10,10,10);
+        imageParams.weight = 1;
+        imageView.setLayoutParams(imageParams);
+
+
+        final LinearLayout.LayoutParams productsParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        activeProducts.setLayoutParams(productsParams);
+        passiveProducts.setLayoutParams(productsParams);
 
             imageView.setOnClickListener(new View.OnClickListener() {
                 Boolean demoFlag = false;
@@ -283,11 +311,15 @@ public class Product extends AppCompatActivity {
             });
 
         newProduct.addView(imageView);
+
+
         TextView tv1 = new TextView(getApplicationContext());
         LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        textParams.weight = 4;
-        textParams.setMargins(10,10,10,10);
+
+
+        textParams.setMargins(10,10,pixel0,10);
+        textParams.weight = 1;
         tv1.setTypeface(Typeface.create("gordita_regular", Typeface.NORMAL));
         tv1.setTextColor(Color.parseColor("#474167"));
         tv1.setLayoutParams(textParams);
@@ -295,6 +327,25 @@ public class Product extends AppCompatActivity {
 
 
         newProduct.addView(tv1);
+
+        final LinearLayout.LayoutParams imageParams3    = new LinearLayout.LayoutParams( pixel0 , pixels3);
+        imageParams3.setMargins(0,10,0,10);
+        imageParams3.weight = 1;
+        imageView3.setLayoutParams(imageParams3);
+
+        newProduct.addView(imageView3);
+
+        final LinearLayout empty = new LinearLayout(this);
+
+        LinearLayout.LayoutParams emptyLayoutParams = new LinearLayout.LayoutParams(pixel0, LinearLayout.LayoutParams.WRAP_CONTENT);
+        emptyLayoutParams.setMargins(0,10,0,10);
+        empty.setLayoutParams(emptyLayoutParams);
+        empty.setOrientation(LinearLayout.HORIZONTAL);
+        emptyLayoutParams.weight=8;
+
+        newProduct.addView(empty);
+
+
         String myPN = productName;
         if(piece>1){
             myPN += "(" + piece + ")";
@@ -305,10 +356,12 @@ public class Product extends AppCompatActivity {
 
 
         tv1.setText(myPN);
+
+
         ImageView detail_arrow_image_view = new ImageView(getApplicationContext());
-        LinearLayout.LayoutParams imageParams2  = new LinearLayout.LayoutParams( pixels2*90/100 , pixels2*90/100);
+        LinearLayout.LayoutParams imageParams2  = new LinearLayout.LayoutParams( pixel0 , pixels2*90/100);
         imageParams2.setMargins(5,10,15,10);
-        imageParams.weight = 1;
+        imageParams2.weight = 1;
         detail_arrow_image_view.setLayoutParams(imageParams2);
         detail_arrow_image_view.setImageDrawable(detail_arrow);
 
@@ -322,6 +375,7 @@ public class Product extends AppCompatActivity {
                 intent.putExtra("productName", myProductName);
 
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -331,4 +385,6 @@ public class Product extends AppCompatActivity {
 
         parent.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
     }
+
+
 }

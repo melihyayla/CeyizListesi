@@ -28,6 +28,7 @@ public class DiscoverFragment extends Fragment {
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private LinearLayout connectionLinearLayout;
     private ScrollView scrollViewFeed;
+    private TextView followCount;
 
     @Nullable
     @Override
@@ -38,6 +39,8 @@ public class DiscoverFragment extends Fragment {
         connectionLinearLayout = view.findViewById(R.id.connection_internet_linear_layout);
         mSwipeRefreshLayout = view.findViewById(R.id.swipe_container);
         scrollViewFeed = view.findViewById(R.id.scroll_view_feed);
+        followCount = view.findViewById(R.id.follow_count);
+
 
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -48,6 +51,7 @@ public class DiscoverFragment extends Fragment {
                     @Override
                     public void run() {
                         mSwipeRefreshLayout.setRefreshing(false);
+                        followCount.setVisibility(View.GONE);
                     }
                 }, 500);
             }

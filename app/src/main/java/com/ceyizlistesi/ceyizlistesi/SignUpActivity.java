@@ -5,29 +5,24 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    LinearLayout mailAdressLinearLayout, passwordLinearLayout, button_linear;
+    LinearLayout mailAdressLinearLayout, passwordLinearLayout;
     EditText mailEditText, passwordEditText;
     ImageView eyeActiveImageView;
     Boolean flag = true;
-    TextView signInTexView;
+    TextView signInTexView,forgotPasswordTextView;
     Button button;
     FrameLayout background_sign_up;
 
@@ -36,6 +31,16 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+        forgotPasswordTextView = findViewById(R.id.forgot_password_text);
+
+        forgotPasswordTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SignUpActivity.this, ForgotPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
 
         background_sign_up = findViewById(R.id.background_sign_up);
 
@@ -107,7 +112,7 @@ public class SignUpActivity extends AppCompatActivity {
         });
 
 
-        button = findViewById(R.id.sign_up_button);
+        button = findViewById(R.id.reset_password);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

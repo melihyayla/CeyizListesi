@@ -2,6 +2,7 @@ package com.ceyizlistesi.ceyizlistesi;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -23,6 +24,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -73,7 +75,7 @@ public class ProductDetail extends AppCompatActivity implements CompoundButton.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
 
-        requestMultiplePermissions();
+
         price =  getIntent().getIntExtra("price", 0);
         piece = getIntent().getIntExtra("piece", 0);
         productName = getIntent().getStringExtra("productName");
@@ -101,11 +103,37 @@ public class ProductDetail extends AppCompatActivity implements CompoundButton.O
             @Override
             public void onClick(View view) {
                 hideSoftKeyboard(ProductDetail.this);
+                informationEditText.setCursorVisible(false);
             }
         });
 
         picturesScrollView.setVisibility(View.GONE);
 
+
+        informationEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (view.getId() == informationEditText.getId())
+                {
+                    informationEditText.setCursorVisible(true);
+                }
+
+            }
+        });
+
+        informationEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+
+            @Override
+            public boolean onEditorAction(TextView v, int actionId,
+                                          KeyEvent event) {
+                informationEditText.setCursorVisible(false);
+                if (event != null&& (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
+                    InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    in.hideSoftInputFromWindow(informationEditText.getApplicationWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
+                }
+                return false;
+            }
+        });
 
         if(piece==0 && price == 0){
             pieceRow.setVisibility(View.GONE);
@@ -166,11 +194,8 @@ public class ProductDetail extends AppCompatActivity implements CompoundButton.O
         addPictureLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                requestMultiplePermissions();
 
-                showPictureDialog();
-                /*Intent pickPhoto = new Intent(Intent.ACTION_PICK,
-                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(pickPhoto , 1);//one can be replaced with any action cod*/
             }
         });
 
@@ -178,10 +203,8 @@ public class ProductDetail extends AppCompatActivity implements CompoundButton.O
             @Override
             public void onClick(View view) {
 
-                showPictureDialog();
-                /*Intent pickPhoto = new Intent(Intent.ACTION_PICK,
-                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(pickPhoto , 1);//one can be replaced with any action cod*/
+                requestMultiplePermissions();
+
             }
         });
 
@@ -246,6 +269,51 @@ public class ProductDetail extends AppCompatActivity implements CompoundButton.O
                 Intent intent = new Intent(ProductDetail.this,Product.class);
                 startActivity(intent);
                 finish();
+
+            }
+        });
+
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+        dialog.show();
+    }
+
+    public void createPictureDialogBox(final LinearLayout parentLayout,final FrameLayout childLayout){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View mView = getLayoutInflater().inflate(R.layout.confirm_dialog_box,null);
+
+        builder.setView(mView);
+        final AlertDialog dialog = builder.create();
+
+
+        Button saveButton = mView.findViewById(R.id.confirm_button);
+        Button cancelButton = mView.findViewById(R.id.cancel_button);
+        TextView message = mView.findViewById(R.id.dialog_message);
+
+        String msg = "Onaylamanız halinde fotoğraf silinecektir!";
+
+        message.setText(msg);
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+
+                numberOfImage--;
+                parentLayout.removeView(childLayout);
+                if (numberOfImage==0){
+                    addPictureLinearLayout.setVisibility(View.VISIBLE);
+                    picturesScrollView.setVisibility(View.GONE);
+                }
 
             }
         });
@@ -535,6 +603,7 @@ public class ProductDetail extends AppCompatActivity implements CompoundButton.O
         String str = String.valueOf(newPrice);
         priceEditText.setText(str);
 
+        priceEditText.setSelection(priceEditText.getText().length());
 
         saveButton = mView.findViewById(R.id.save_button);
         closeButton = mView.findViewById(R.id.close_button);
@@ -595,7 +664,7 @@ public class ProductDetail extends AppCompatActivity implements CompoundButton.O
 
         final FrameLayout newImageFrameLayout = new FrameLayout(this);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        layoutParams.setMargins(5,0,20,0);
+        layoutParams.setMargins(20,0,5,0);
         newImageFrameLayout.setLayoutParams(layoutParams);
 
 
@@ -636,12 +705,15 @@ public class ProductDetail extends AppCompatActivity implements CompoundButton.O
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                numberOfImage--;
+
+                createPictureDialogBox(parent, newImageFrameLayout);
+                /*numberOfImage--;
                 parent.removeView(newImageFrameLayout);
                 if (numberOfImage==0){
                     addPictureLinearLayout.setVisibility(View.VISIBLE);
                     picturesScrollView.setVisibility(View.GONE);
-                }
+                }*/
+
             }
         });
     }
@@ -690,12 +762,16 @@ public class ProductDetail extends AppCompatActivity implements CompoundButton.O
                         // check if all permissions are granted
                         if (report.areAllPermissionsGranted()) {
                             Toast.makeText(getApplicationContext(), "All permissions are granted by user!", Toast.LENGTH_SHORT).show();
+                            showPictureDialog();
                         }
 
                         // check for permanent denial of any permission
                         if (report.isAnyPermissionPermanentlyDenied()) {
                             // show alert dialog navigating to Settings
                             //openSettingsDialog();
+
+                            Toast.makeText(getApplicationContext(), "Give Permission", Toast.LENGTH_SHORT).show();
+
                         }
                     }
 

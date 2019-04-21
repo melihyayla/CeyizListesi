@@ -35,11 +35,11 @@
                           <map>
                             <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ff6184" />
-                            <entry key="height" value="30" />
-                            <entry key="outputName" value="ic_added" />
+                            <entry key="height" value="182" />
+                            <entry key="outputName" value="ic_unicorn" />
                             <entry key="overrideSize" value="true" />
-                            <entry key="sourceFile" value="C:\Users\melih\Downloads\added.svg" />
-                            <entry key="width" value="30" />
+                            <entry key="sourceFile" value="C:\Users\melih\Desktop\Ceyiz Listesi\unicorn.svg" />
+                            <entry key="width" value="150" />
                           </map>
                         </option>
                       </PersistentState>

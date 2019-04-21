@@ -38,19 +38,20 @@
                             android:layout_marginLeft="10dp"
                             android:src="@drawable/ic_add_friend" />
 
-                        <TextView
-                            android:layout_width="15dp"
-                            android:layout_height="15dp"
-                            android:layout_gravity="bottom"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginTop="25dp"
-                            android:layout_marginRight="50dp"
-                            android:background="@drawable/notification_circle"
-                            android:fontFamily="@font/gordita_bold"
-                            android:text="2"
-                            android:textAlignment="center"
-                            android:textColor="@color/white"
-                            android:textSize="10sp" />
+                    <TextView
+                        android:id="@+id/follow_count"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginRight="50dp"
+                        android:background="@drawable/notification_circle"
+                        android:fontFamily="@font/gordita_bold"
+                        android:text="2"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="10sp" />
 
                     </FrameLayout>
                 </LinearLayout>
@@ -80,6 +81,7 @@
         </LinearLayout>
 
 
+
         <android.support.v4.widget.SwipeRefreshLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/swipe_container"
@@ -90,7 +92,6 @@
                 android:id="@+id/scroll_view_feed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -123,7 +124,7 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:background="@drawable/frame_layout_discover">
+                            android:background="@drawable/frame_layout_advert_discover">
 
                             <ImageView
                                 android:id="@+id/firstimage4"
@@ -173,16 +174,58 @@
 
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:layout_marginBottom="70dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <ImageView
+                            android:layout_width="150dp"
+                            android:layout_height="180dp"
+                            android:layout_margin="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_unicorn" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/gordita_medium"
+                            android:text="Vay, tamamını gördün!"
+                            android:layout_gravity="center"
+                            android:textColor="@color/dusk"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_marginBottom="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/gordita_regular"
+                            android:text="Şimdi yeni bir şey paylaşmaya ne dersin?"
+                            android:textColor="@color/dusk"
+                            android:textSize="13sp"
+
+                            />
+                    </LinearLayout>
+
                 </LinearLayout>
+
+
             </ScrollView>
         </android.support.v4.widget.SwipeRefreshLayout>
+
+
+
 
     </LinearLayout>
 
 
     <ImageView
         android:id="@+id/add_icon_center"
-        android:layout_width="100dp"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:src="@drawable/ic_plus_center" />

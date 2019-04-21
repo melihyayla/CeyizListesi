@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@android:color/transparent"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:clickable="false">
 
     <LinearLayout
+        android:id="@+id/background_linear_layout"
         android:layout_width="300dp"
         android:layout_height="350dp"
         android:layout_gravity="clip_horizontal|center|center_vertical"
@@ -40,8 +42,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center|center_vertical"
             android:layout_margin="5dp"
-            android:padding="5dp"
-            android:orientation="vertical">
+            android:clickable="false"
+            android:orientation="vertical"
+            android:padding="5dp">
 
             <LinearLayout
                 android:id="@+id/product_name_linear_layout"
@@ -76,9 +79,9 @@
                 android:layout_alignParentTop="true"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="5dp"
-                android:padding="5dp"
                 android:background="@drawable/linear_layout_bg"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="5dp">
 
                 <TextView
                     android:layout_width="0dp"
@@ -86,6 +89,7 @@
                     android:layout_margin="10dp"
                     android:layout_weight="3"
                     android:background="@android:color/transparent"
+                    android:clickable="false"
                     android:fontFamily="@font/gordita_regular"
                     android:hint="Adet"
                     android:textSize="16dp" />
@@ -132,9 +136,9 @@
                 android:layout_alignParentTop="true"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="5dp"
-                android:padding="5dp"
                 android:background="@drawable/linear_layout_bg"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="5dp">
 
 
                 <EditText
@@ -144,8 +148,8 @@
                     android:layout_margin="10dp"
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/gordita_regular"
-                    android:inputType="number"
                     android:hint="Fiyat (₺)"
+                    android:inputType="number"
                     android:textSize="16dp" />
 
             </LinearLayout>

@@ -25,6 +25,7 @@
 
         <TextView
 
+            android:id="@+id/dialog_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -69,7 +70,7 @@
             android:background="@drawable/linear_layout_purple_button"
             android:fontFamily="@font/gordita_bold"
             android:gravity="center"
-            android:text="KAYDET"
+            android:text="ONAYLA"
             android:textColor="@color/white"
             android:textSize="12sp" />
 

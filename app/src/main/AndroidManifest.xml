@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
@@ -17,27 +18,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProductDetail"
-            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ForgotPasswordActivity"></activity>
+        <activity
+            android:name=".ProductDetail"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Product" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".IntroSlider">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SignUpActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".SignInActivity"
+            android:windowSoftInputMode="adjustResize" />
 
-        <activity android:name=".SignUpActivity"
-            android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".SignInActivity"
-            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>
