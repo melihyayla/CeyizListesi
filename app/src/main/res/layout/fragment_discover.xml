@@ -94,6 +94,7 @@
                 android:layout_height="wrap_content">
 
                 <LinearLayout
+                    android:id="@+id/parent_list_linear_layout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
@@ -117,6 +118,66 @@
                                 android:id="@+id/firstimage3"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent" />
+
+                            <ImageView
+                                android:id="@+id/pp"
+                                android:background="@drawable/image_circle_background"
+                                android:layout_margin="10dp"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp" />
+
+
+                            <LinearLayout
+                                android:layout_margin="5dp"
+                                android:layout_gravity="right"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                            <TextView
+                                android:id="@+id/tw"
+                                android:background="@drawable/text_advert_discover"
+                                android:layout_width="75dp"
+                                android:layout_margin="5dp"
+                                android:textColor="@color/dusk"
+                                android:text="SİZE ÖZEL"
+                                android:fontFamily="@font/gordita_bold"
+                                android:textSize="8sp"
+                                android:gravity="center"
+                                android:layout_height="20dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="wrap_content"
+                                android:layout_gravity="bottom|center"
+                                android:layout_height="wrap_content">
+                            <TextView
+                                android:id="@+id/detail1"
+                                android:layout_width="wrap_content"
+                                android:layout_margin="5dp"
+                                android:textColor="@color/dusk"
+                                android:text="SİZE ÖZEL DENEME 1 DENEME 2"
+                                android:fontFamily="@font/gordita_bold"
+                                android:textSize="12sp"
+
+                                android:maxLines="1"
+                                android:gravity="center"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/detail2"
+                                android:layout_width="wrap_content"
+                                android:layout_margin="5dp"
+                                android:textColor="@color/dusk"
+                                android:text="SİZE ÖZEL DENEME 1 DENEME 2"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:fontFamily="@font/gordita_medium"
+                                android:textSize="12sp"
+                                android:gravity="center"
+                                android:layout_height="wrap_content" />
+
+                            </LinearLayout>
+
 
                         </FrameLayout>
 
@@ -175,34 +236,34 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_marginBottom="70dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="70dp"
                         android:orientation="vertical">
 
 
                         <ImageView
                             android:layout_width="150dp"
                             android:layout_height="180dp"
-                            android:layout_margin="20dp"
                             android:layout_gravity="center"
+                            android:layout_margin="20dp"
                             android:src="@drawable/ic_unicorn" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:fontFamily="@font/gordita_medium"
                             android:text="Vay, tamamını gördün!"
-                            android:layout_gravity="center"
                             android:textColor="@color/dusk"
                             android:textSize="16sp" />
 
                         <TextView
-                            android:layout_marginBottom="20dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
                             android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:layout_marginBottom="20dp"
                             android:fontFamily="@font/gordita_regular"
                             android:text="Şimdi yeni bir şey paylaşmaya ne dersin?"
                             android:textColor="@color/dusk"

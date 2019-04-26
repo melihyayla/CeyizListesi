@@ -60,6 +60,8 @@ public class DiscoverFragment extends Fragment {
         checkInternetConnection();
 
 
+
+
         return view;
     }
 
