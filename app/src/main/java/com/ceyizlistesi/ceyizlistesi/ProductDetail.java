@@ -488,8 +488,20 @@ public class ProductDetail extends AppCompatActivity implements CompoundButton.O
         InputMethodManager inputMethodManager =
                 (InputMethodManager) activity.getSystemService(
                         Activity.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(
-                activity.getCurrentFocus().getWindowToken(), 0);
+
+
+
+        if (inputMethodManager.isAcceptingText()) {
+
+            inputMethodManager.hideSoftInputFromWindow(
+                    activity.getCurrentFocus().getWindowToken(), 0);}
+
+        else {
+
+            Log.i("Keyboard","Software Keyboard was shown");
+
+        }
+
     }
 
     public void createPieceDialogBox(int newPiece){

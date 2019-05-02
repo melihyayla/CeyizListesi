@@ -64,62 +64,62 @@
                         android:layout_height="wrap_content">
 
 
-                    <LinearLayout
-                        android:id="@+id/linear_layout_washing_machine"
-                        android:layout_width="match_parent"
-                        android:layout_height="170dp"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/linear_layout_border"
-                        android:orientation="vertical"
-                        android:weightSum="1">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginRight="20dp"
-                            android:layout_marginBottom="5dp"
-                            android:src="@drawable/ic_washing_machine" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
+                        <LinearLayout
+                            android:id="@+id/linear_layout_washing_machine"
+                            android:layout_width="match_parent"
+                            android:layout_height="175dp"
                             android:layout_margin="5dp"
-                            android:fontFamily="@font/gordita_bold"
-                            android:text="Beyaz Esya"
-                            android:textColor="@color/dusk"
-                            android:textSize="16sp" />
+                            android:background="@drawable/linear_layout_border"
+                            android:orientation="vertical"
+                            android:weightSum="1">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginBottom="2dp"
-                            android:fontFamily="@font/gordita_regular"
-                            android:text="24 Parça"
-                            android:textColor="@color/deep_lilac"
-                            android:textSize="14sp" />
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:src="@drawable/ic_washing_machine" />
 
-                        <TextView
-                            android:id="@+id/percentage_machine"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginTop="3dp"
-                            android:layout_marginRight="5dp"
-                            android:layout_marginBottom="0dp"
-                            android:background="@drawable/tooltip"
-                            android:fontFamily="@font/gordita_regular"
-                            android:text="30"
-                            android:textAlignment="center"
-                            android:textAllCaps="false"
-                            android:textColor="@color/white"
-                            android:textSize="14sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_margin="5dp"
+                                android:fontFamily="@font/gordita_bold"
+                                android:text="Beyaz Esya"
+                                android:textColor="@color/dusk"
+                                android:textSize="16sp" />
 
-                    </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="2dp"
+                                android:fontFamily="@font/gordita_regular"
+                                android:text="24 Parça"
+                                android:textColor="@color/deep_lilac"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/percentage_machine"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_marginBottom="0dp"
+                                android:background="@drawable/tooltip"
+                                android:fontFamily="@font/gordita_regular"
+                                android:text="30"
+                                android:textAlignment="center"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
 
                         <ProgressBar
 
@@ -141,62 +141,62 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content">
 
-                    <LinearLayout
-                        android:id="@+id/linear_layout_electric"
-                        android:layout_width="match_parent"
-                        android:layout_height="170dp"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/linear_layout_border"
-                        android:orientation="vertical"
-                        android:weightSum="1">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginRight="20dp"
-                            android:layout_marginBottom="5dp"
-                            android:src="@drawable/ic_electric" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
+                        <LinearLayout
+                            android:id="@+id/linear_layout_electric"
+                            android:layout_width="match_parent"
+                            android:layout_height="175dp"
                             android:layout_margin="5dp"
-                            android:fontFamily="@font/gordita_bold"
-                            android:text="Elektrikli Aletler"
-                            android:textColor="@color/dusk"
-                            android:textSize="16sp" />
+                            android:background="@drawable/linear_layout_border"
+                            android:orientation="vertical"
+                            android:weightSum="1">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginBottom="2dp"
-                            android:fontFamily="@font/gordita_regular"
-                            android:text="24 Parça"
-                            android:textColor="@color/deep_lilac"
-                            android:textSize="14sp" />
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:src="@drawable/ic_electric" />
 
-                        <TextView
-                            android:id="@+id/percentage_electric"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginTop="3dp"
-                            android:layout_marginRight="5dp"
-                            android:layout_marginBottom="0dp"
-                            android:background="@drawable/tooltip"
-                            android:fontFamily="@font/gordita_regular"
-                            android:text="50"
-                            android:textAlignment="center"
-                            android:textAllCaps="false"
-                            android:textColor="@color/white"
-                            android:textSize="14sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_margin="5dp"
+                                android:fontFamily="@font/gordita_bold"
+                                android:text="Elektrikli Aletler"
+                                android:textColor="@color/dusk"
+                                android:textSize="16sp" />
 
-                    </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="2dp"
+                                android:fontFamily="@font/gordita_regular"
+                                android:text="24 Parça"
+                                android:textColor="@color/deep_lilac"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/percentage_electric"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_marginBottom="0dp"
+                                android:background="@drawable/tooltip"
+                                android:fontFamily="@font/gordita_regular"
+                                android:text="50"
+                                android:textAlignment="center"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
 
                         <ProgressBar
                             android:id="@+id/progressBarElectric"
@@ -231,64 +231,63 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content">
 
-                    <LinearLayout
-                        android:id="@+id/linear_layout_furniture"
-                        android:layout_width="match_parent"
-                        android:layout_height="170dp"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/linear_layout_border"
-                        android:orientation="vertical"
-                        android:weightSum="1">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginRight="20dp"
-                            android:layout_marginBottom="5dp"
-                            android:src="@drawable/ic_furnutire" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
+                        <LinearLayout
+                            android:id="@+id/linear_layout_furniture"
+                            android:layout_width="match_parent"
+                            android:layout_height="175dp"
                             android:layout_margin="5dp"
-                            android:fontFamily="@font/gordita_bold"
-                            android:text="Beyaz Esya"
-                            android:textColor="@color/dusk"
-                            android:textSize="16sp" />
+                            android:background="@drawable/linear_layout_border"
+                            android:orientation="vertical"
+                            android:weightSum="1">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginBottom="2dp"
-                            android:fontFamily="@font/gordita_regular"
-                            android:text="24 Parça"
-                            android:textColor="@color/deep_lilac"
-                            android:textSize="14sp" />
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:src="@drawable/ic_furnutire" />
 
-                        <TextView
-                            android:id="@+id/percentage_furnite"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginTop="3dp"
-                            android:layout_marginRight="5dp"
-                            android:layout_marginBottom="0dp"
-                            android:background="@drawable/tooltip"
-                            android:fontFamily="@font/gordita_regular"
-                            android:text="40"
-                            android:textAlignment="center"
-                            android:textAllCaps="false"
-                            android:textColor="@color/white"
-                            android:textSize="14sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_margin="5dp"
+                                android:fontFamily="@font/gordita_bold"
+                                android:text="Beyaz Esya"
+                                android:textColor="@color/dusk"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="2dp"
+                                android:fontFamily="@font/gordita_regular"
+                                android:text="24 Parça"
+                                android:textColor="@color/deep_lilac"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/percentage_furnite"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_marginBottom="0dp"
+                                android:background="@drawable/tooltip"
+                                android:fontFamily="@font/gordita_regular"
+                                android:text="40"
+                                android:textAlignment="center"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="14sp" />
 
 
-
-                    </LinearLayout>
+                        </LinearLayout>
 
                         <ProgressBar
                             android:id="@+id/progressBarFurnite"
@@ -309,62 +308,62 @@
 
 
                         <LinearLayout
-                        android:id="@+id/linear_layout_curtain"
+                            android:id="@+id/linear_layout_curtain"
 
-                        android:layout_height="170dp"
-                        android:layout_margin="5dp"
-                        android:layout_width="match_parent"
-                        android:background="@drawable/linear_layout_border"
-                        android:orientation="vertical"
-                        android:weightSum="1">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginRight="20dp"
-                            android:layout_marginBottom="5dp"
-                            android:src="@drawable/ic_curtain" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="175dp"
                             android:layout_margin="5dp"
-                            android:fontFamily="@font/gordita_bold"
-                            android:text="Beyaz Esya"
-                            android:textColor="@color/dusk"
-                            android:textSize="16sp" />
+                            android:background="@drawable/linear_layout_border"
+                            android:orientation="vertical"
+                            android:weightSum="1">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginBottom="2dp"
-                            android:fontFamily="@font/gordita_regular"
-                            android:text="15 Parça"
-                            android:textColor="@color/deep_lilac"
-                            android:textSize="14sp" />
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:src="@drawable/ic_curtain" />
 
-                        <TextView
-                            android:id="@+id/percentage_curtain"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginTop="3dp"
-                            android:layout_marginRight="5dp"
-                            android:layout_marginBottom="0dp"
-                            android:background="@drawable/tooltip"
-                            android:fontFamily="@font/gordita_regular"
-                            android:text="30"
-                            android:textAlignment="center"
-                            android:textAllCaps="false"
-                            android:textColor="@color/white"
-                            android:textSize="14sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_margin="5dp"
+                                android:fontFamily="@font/gordita_bold"
+                                android:text="Beyaz Esya"
+                                android:textColor="@color/dusk"
+                                android:textSize="16sp" />
 
-                    </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="2dp"
+                                android:fontFamily="@font/gordita_regular"
+                                android:text="15 Parça"
+                                android:textColor="@color/deep_lilac"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/percentage_curtain"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_marginBottom="0dp"
+                                android:background="@drawable/tooltip"
+                                android:fontFamily="@font/gordita_regular"
+                                android:text="30"
+                                android:textAlignment="center"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
 
                         <ProgressBar
                             android:id="@+id/progressBarCurtain"
