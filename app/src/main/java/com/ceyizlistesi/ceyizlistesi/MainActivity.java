@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         mSectionsPageAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         plusIcon = findViewById(R.id.share_plus_button);
-
+        plusIcon.setVisibility(View.GONE);
 
         mViewPager =  findViewById(R.id.container);
         setupViewPager(mViewPager);
@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout.getTabAt(0).setIcon(R.drawable.selector_discover);
         tabLayout.getTabAt(1).setIcon(R.drawable.selector_chest);
-        tabLayout.getTabAt(2).setIcon(R.drawable.selector_user);
-        tabLayout.getTabAt(3).setIcon(R.drawable.selector_notifications);
+        tabLayout.getTabAt(3).setIcon(R.drawable.selector_user);
+        tabLayout.getTabAt(2).setIcon(R.drawable.selector_notifications);
 
 
 
@@ -70,6 +70,12 @@ public class MainActivity extends AppCompatActivity {
           @Override
           public void onTabSelected(TabLayout.Tab tab) {
 
+
+              if(isNetworkAvailable()){
+                  Toast.makeText(MainActivity.this, "Internet is Available", Toast.LENGTH_SHORT).show();
+              }
+              else
+                  Toast.makeText(MainActivity.this, "No internet Connection", Toast.LENGTH_SHORT).show();
 
                if(tab.getPosition()==0){
                   plusIcon.setVisibility(View.VISIBLE);
@@ -97,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
                  plusIcon.setVisibility(View.VISIBLE);
 
               }
+              else
+                  plusIcon.setVisibility(View.GONE);
 
 
 
@@ -137,8 +145,8 @@ public class MainActivity extends AppCompatActivity {
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new DiscoverFragment());
         adapter.addFragment(new ChestFragment());
-        adapter.addFragment(new UserFragment());
         adapter.addFragment(new NotificationsFragment());
+        adapter.addFragment(new UserFragment());
         viewPager.setAdapter(adapter);
     }
 }
