@@ -104,146 +104,23 @@
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:id="@+id/parent_list_linear_layout"
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:id="@+id/parent_list_linear_layout"
                         android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="15dp"
-                        android:orientation="horizontal">
-
-                        <FrameLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginRight="15dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/frame_layout_discover">
-
-                            <ImageView
-                                android:id="@+id/firstimage3"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent" />
-
-                            <ImageView
-                                android:id="@+id/pp"
-                                android:background="@drawable/image_circle_background"
-                                android:layout_margin="10dp"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp" />
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
 
-                            <LinearLayout
-                                android:layout_margin="5dp"
-                                android:layout_gravity="right"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
-                            <TextView
-                                android:id="@+id/tw"
-                                android:background="@drawable/text_advert_discover"
-                                android:layout_width="75dp"
-                                android:layout_margin="5dp"
-                                android:textColor="@color/dusk"
-                                android:text="SİZE ÖZEL"
-                                android:fontFamily="@font/gordita_bold"
-                                android:textSize="8sp"
-                                android:gravity="center"
-                                android:layout_height="20dp" />
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="wrap_content"
-                                android:layout_gravity="bottom|center"
-                                android:layout_height="wrap_content">
-                            <TextView
-                                android:id="@+id/detail1"
-                                android:layout_width="wrap_content"
-                                android:layout_margin="5dp"
-                                android:textColor="@color/dusk"
-                                android:text="SİZE ÖZEL DENEME 1 DENEME 2"
-                                android:fontFamily="@font/gordita_bold"
-                                android:textSize="12sp"
-
-                                android:maxLines="1"
-                                android:gravity="center"
-                                android:layout_height="wrap_content" />
-                            <TextView
-                                android:id="@+id/detail2"
-                                android:layout_width="wrap_content"
-                                android:layout_margin="5dp"
-                                android:textColor="@color/dusk"
-                                android:text="SİZE ÖZEL DENEME 1 DENEME 2"
-                                android:ellipsize="end"
-                                android:maxLines="1"
-                                android:fontFamily="@font/gordita_medium"
-                                android:textSize="12sp"
-                                android:gravity="center"
-                                android:layout_height="wrap_content" />
-
-                            </LinearLayout>
-
-
-                        </FrameLayout>
-
-                        <FrameLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="@drawable/frame_layout_advert_discover">
-
-                            <ImageView
-                                android:id="@+id/firstimage4"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent" />
-
-                        </FrameLayout>
 
 
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="15dp"
-                        android:orientation="horizontal">
 
-                        <FrameLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginRight="15dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/frame_layout_discover">
-
-                            <ImageView
-                                android:id="@+id/firstimage"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent" />
-
-                        </FrameLayout>
-
-                        <FrameLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="@drawable/frame_layout_discover">
-
-                            <ImageView
-                                android:id="@+id/firstimage2"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent" />
-
-                        </FrameLayout>
-
-
-                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -292,14 +169,6 @@
 
 
     </LinearLayout>
-
-
-    <ImageView
-        android:id="@+id/add_icon_center"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:src="@drawable/ic_plus_center" />
 
 
     <LinearLayout

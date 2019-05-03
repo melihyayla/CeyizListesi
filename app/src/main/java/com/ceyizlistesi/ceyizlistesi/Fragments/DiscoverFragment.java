@@ -19,6 +19,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,19 +37,24 @@ import com.ceyizlistesi.ceyizlistesi.ProductDetail;
 import com.ceyizlistesi.ceyizlistesi.R;
 
 public class DiscoverFragment extends Fragment {
-    ImageView add_plus_icon;
+    //ImageView add_plus_icon;
     private SwipeRefreshLayout mSwipeRefreshLayout;
-    private LinearLayout connectionLinearLayout,followCountLinearLayout;
+    private LinearLayout connectionLinearLayout,followCountLinearLayout, parentListLinearLayout;
     private ScrollView scrollViewFeed;
     private TextView followCount;
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_discover,container,false);
 
-        add_plus_icon = view.findViewById(R.id.add_icon_center);
+        ImageView plusIcon = getActivity().findViewById(R.id.share_plus_button);
+        plusIcon.setVisibility(View.VISIBLE);
+
+        //add_plus_icon = view.findViewById(R.id.add_icon_center);
         connectionLinearLayout = view.findViewById(R.id.connection_internet_linear_layout);
+        parentListLinearLayout = view.findViewById(R.id.parent_list_linear_layout);
         mSwipeRefreshLayout = view.findViewById(R.id.swipe_container);
         scrollViewFeed = view.findViewById(R.id.scroll_view_feed);
         followCount = view.findViewById(R.id.follow_count);
@@ -74,6 +80,12 @@ public class DiscoverFragment extends Fragment {
         checkInternetConnection();
 
 
+        LinearLayout demo = createdLinearLayout(parentListLinearLayout);
+
+        createImageProduct(demo, "normal", "Deneme", "Denedim oluyor");
+
+        createImageProduct(demo, "empty", "Deneme", "Denedim olmuyor UZUUUUUUZZZZZZZZZN");
+
 
 
         return view;
@@ -83,13 +95,13 @@ public class DiscoverFragment extends Fragment {
     public void checkInternetConnection(){
 
         if(((MainActivity)getActivity()).isNetworkAvailable()){
-            add_plus_icon.setVisibility(View.VISIBLE);
+            //add_plus_icon.setVisibility(View.VISIBLE);
             connectionLinearLayout.setVisibility(View.GONE);
             scrollViewFeed.setEnabled(true);
 
         }
         else{
-            add_plus_icon.setVisibility(View.GONE);
+            //add_plus_icon.setVisibility(View.GONE);
             connectionLinearLayout.setVisibility(View.VISIBLE);
             scrollViewFeed.setEnabled(false);
         }
@@ -100,28 +112,19 @@ public class DiscoverFragment extends Fragment {
 
         final float scale = getContext().getResources().getDisplayMetrics().density;
         int pixels = (int) (200 * scale + 0.5f);
-        int pixels2 = (int) (25 * scale + 0.5f);
-
 
         final LinearLayout newProduct = new LinearLayout(getContext());
-
         LinearLayout.LayoutParams layoutParams    = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, pixels);
-
-        layoutParams.setMargins(15,0,15,15);
-
+        layoutParams.setMargins(20,0,20,20);
         newProduct.setLayoutParams(layoutParams);
-
-        //newProduct.setBackground(getResources().getDrawable(R.drawable.product_linear_background));
         newProduct.setOrientation(LinearLayout.HORIZONTAL);
-
         parent.addView(newProduct);
 
         return  newProduct;
 
     }
 
-    public void createImageProduct(LinearLayout parent, final String type, final Bitmap image,
-                                   final Bitmap userPicture,final String productName, final String productComment){
+    public void createImageProduct(LinearLayout parent, final String type, final String productName, final String productComment){
 
         final float scale = getContext().getResources().getDisplayMetrics().density;
         int pixels = (int) (40 * scale + 0.5f);
@@ -135,7 +138,7 @@ public class DiscoverFragment extends Fragment {
 
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT,1);
 
-        layoutParams.setMargins(7,0,7,0);
+        layoutParams.setMargins(20,0,20,0);
 
 
 
@@ -143,12 +146,16 @@ public class DiscoverFragment extends Fragment {
         newProduct.setLayoutParams(layoutParams);
 
         final ImageView imageView = new ImageView(getContext());
-        Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.demofridge);
-        //image.setImageBitmap(b);
-        imageView.setImageBitmap(b);
+        Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.fridge);
+
+        Bitmap resizedMain = Bitmap.createScaledBitmap(b, 155, 170, true);
+        resizedMain = roundCorner(resizedMain,6f);
+
+
+        imageView.setImageBitmap(resizedMain);
 
         final LinearLayout.LayoutParams imageParams    = new LinearLayout.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT , ViewGroup.LayoutParams.MATCH_PARENT);
-        imageParams.setMargins(1,1,1,1);
+        imageParams.setMargins(5,5,5,5);
         imageView.setLayoutParams(imageParams);
 
         newProduct.addView(imageView);
@@ -157,10 +164,12 @@ public class DiscoverFragment extends Fragment {
         final ImageView profileImageView = new ImageView(getContext());
 
         Bitmap b2 = BitmapFactory.decodeResource(getResources(), R.drawable.profile_picture);
-        //image.setImageBitmap(b);
 
-        b2 = roundCorner(b2,50);
-        profileImageView.setImageBitmap(b2);
+        Bitmap resizedProfile = Bitmap.createScaledBitmap(b2, 60, 60, true);
+
+        resizedProfile = roundCorner(resizedProfile,500f);
+        profileImageView.setImageBitmap(resizedProfile);
+
         profileImageView.setBackground(getResources().getDrawable(R.drawable.image_circle_background));
 
 
@@ -168,69 +177,113 @@ public class DiscoverFragment extends Fragment {
 
         imageParams2.setMargins(10,10,10,10);
         profileImageView.setPadding(2,2,2,2);
-        profileImageView.setLayoutParams(imageParams);
+        profileImageView.setLayoutParams(imageParams2);
 
         newProduct.addView(profileImageView);
 
+        Typeface gorditaBold = Typeface.createFromAsset(getContext().getAssets(), "fonts/gordita_bold.otf");
+        Typeface gorditaMedium = Typeface.createFromAsset(getContext().getAssets(), "fonts/gordita_medium.otf");
 
         if(type.equals("advert")){
             newProduct.setBackground(getResources().getDrawable(R.drawable.frame_layout_advert_discover));
 
 
-            final FrameLayout advertLinear = new FrameLayout(getContext());
+            final LinearLayout advertLinear = new LinearLayout(getContext());
 
-            final LinearLayout.LayoutParams advertLinearParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+            final FrameLayout.LayoutParams advertLinearParams = new FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT);
+            advertLinear.setGravity(Gravity.RIGHT);
 
-            advertLinearParams.gravity = Gravity.RIGHT | Gravity.TOP;
+
             advertLinearParams.setMargins(5,5,5,5);
-
+            advertLinearParams.gravity=Gravity.RIGHT;
             TextView tvAdvert = new TextView(getContext());
             LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
                     pixels2*3, pixels2);
 
             textParams.setMargins(5,5,5,5);
-            tvAdvert.setTypeface(Typeface.create("gordita_bold", Typeface.NORMAL));
-            tvAdvert.setTextColor(Color.parseColor("#474167"));
+            tvAdvert.setTypeface(gorditaBold);
             tvAdvert.setText("SİZE ÖZEL");
+            advertLinear.setLayoutParams(advertLinearParams);
             tvAdvert.setBackground(getResources().getDrawable(R.drawable.text_advert_discover));
             tvAdvert.setTextSize(8);
             tvAdvert.setTextColor(ContextCompat.getColor(getContext(), R.color.dusk));
             tvAdvert.setGravity(Gravity.CENTER);
             tvAdvert.setLayoutParams(textParams);
 
+            advertLinear.addView(tvAdvert);
+
+            newProduct.addView(advertLinear);
+
         }
-        else
-            newProduct.setBackground(getResources().getDrawable(R.drawable.frame_layout_discover));
+        else if(type.equals("empty")){
+
+            newProduct.setVisibility(View.INVISIBLE);
+            parent.addView(newProduct);
+            return ;
+        }
 
 
 
 
 
-        final LinearLayout.LayoutParams productsParams    = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        final LinearLayout commentLinear = new LinearLayout(getContext());
 
-        TextView tv1 = new TextView(getContext());
-        LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
+
+
+        final FrameLayout.LayoutParams commentLinearParams  = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+               ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        //commentLinearParams.weight = 1.0f;
+        commentLinearParams.setMargins(5,5,5,5);
+        commentLinearParams.gravity = Gravity.BOTTOM | Gravity.CENTER;
+        commentLinear.setOrientation(LinearLayout.VERTICAL);
+        commentLinear.setLayoutParams(commentLinearParams);
+        //commentLinear.setBackground(getResources().getDrawable(R.drawable.text_advert_discover));
+        commentLinear.setGravity(Gravity.BOTTOM);
+
+
+
+        TextView productNameTextView = new TextView(getContext());
+        LinearLayout.LayoutParams productNameTextParams = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        textParams.weight = 4;
-        textParams.setMargins(10,10,10,10);
-        tv1.setTypeface(Typeface.create("gordita_regular", Typeface.NORMAL));
-        tv1.setTextColor(Color.parseColor("#474167"));
-        tv1.setLayoutParams(textParams);
 
 
 
+        productNameTextParams.setMargins(5,5,5,5);
+        productNameTextParams.gravity = Gravity.CENTER;
+        productNameTextView.setTypeface(gorditaBold);
+        productNameTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.white));
+        productNameTextView.setLayoutParams(productNameTextParams);
+        productNameTextView.setTextSize(12);
+        productNameTextView.setMaxLines(1);
+        productNameTextView.setText("#"+productName);
 
 
 
+        TextView productCommentTextView = new TextView(getContext());
+        LinearLayout.LayoutParams productCommetTextParams = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        productCommetTextParams.setMargins(5,5,5,5);
+        productCommetTextParams.gravity = Gravity.CENTER;
+        productCommentTextView.setTypeface(gorditaMedium);
+        productCommentTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.white));
+        productCommentTextView.setLayoutParams(productCommetTextParams);
+        productCommentTextView.setTextSize(12);
+        productCommentTextView.setMaxLines(1);
+        productCommentTextView.setEllipsize(TextUtils.TruncateAt.END);
+        productCommentTextView.setText(productComment);
+
+        commentLinear.addView(productNameTextView);
+        commentLinear.addView(productCommentTextView);
 
 
-
-
+        newProduct.addView(commentLinear);
 
         parent.addView(newProduct);
 
-        parent.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        //parent.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
     }
 
 

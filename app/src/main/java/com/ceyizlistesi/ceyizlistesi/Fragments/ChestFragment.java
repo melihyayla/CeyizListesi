@@ -11,6 +11,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -29,6 +30,9 @@ public class ChestFragment  extends Fragment {
     @Override
     public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chest,container,false);
+
+        //ImageView plusIcon = getActivity().findViewById(R.id.share_plus_button);
+        //plusIcon.setVisibility(View.INVISIBLE);
 
         linearLayoutMachine = view.findViewById(R.id.linear_layout_washing_machine);
         linearLayoutElectric = view.findViewById(R.id.linear_layout_electric);

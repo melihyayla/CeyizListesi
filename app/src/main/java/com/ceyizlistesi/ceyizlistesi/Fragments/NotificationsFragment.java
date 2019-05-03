@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,8 +25,13 @@ public class NotificationsFragment extends Fragment {
 
         addView(view);
 
+        //ImageView plusIcon = getActivity().findViewById(R.id.share_plus_button);
+        //plusIcon.setVisibility(View.INVISIBLE);
+
         return view;
     }
+
+
 
 
     public void addView(View view){

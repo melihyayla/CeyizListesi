@@ -6,15 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <RelativeLayout
         android:id="@+id/relLayout"
+        android:layout_gravity="bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+
 
         <RelativeLayout
             android:id="@+id/topBar"
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:layout_gravity="bottom"
             android:layout_alignParentBottom="true">
 
             <android.support.design.widget.AppBarLayout
@@ -36,6 +44,9 @@
 
         </RelativeLayout>
 
+
+
+
         <RelativeLayout
             android:layout_above="@+id/topBar"
             android:layout_width="match_parent"
@@ -43,15 +54,27 @@
             >
 
             <android.support.v4.view.ViewPager
+                android:id="@+id/container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/container"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             </android.support.v4.view.ViewPager>
 
         </RelativeLayout>
+
+
     </RelativeLayout>
 
+
+        <ImageView
+            android:id="@+id/share_plus_button"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="35dp"
+            android:src="@drawable/plus" />
+
+    </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 
 import com.ceyizlistesi.ceyizlistesi.R;
@@ -27,6 +28,9 @@ public class UserFragment extends Fragment {
 
         sign_in_button = view.findViewById(R.id.sign_in_button);
         sign_up_button = view.findViewById(R.id.reset_password);
+
+        //ImageView plusIcon = getActivity().findViewById(R.id.share_plus_button);
+        //plusIcon.setVisibility(View.INVISIBLE);
 
 
         sign_in_button.setOnClickListener(new View.OnClickListener() {
