@@ -72,10 +72,10 @@ public class MainActivity extends AppCompatActivity {
 
 
               if(isNetworkAvailable()){
-                  Toast.makeText(MainActivity.this, "Internet is Available", Toast.LENGTH_SHORT).show();
+                 // Toast.makeText(MainActivity.this, "Internet is Available", Toast.LENGTH_SHORT).show();
               }
               else
-                  Toast.makeText(MainActivity.this, "No internet Connection", Toast.LENGTH_SHORT).show();
+                  //Toast.makeText(MainActivity.this, "No internet Connection", Toast.LENGTH_SHORT).show();
 
                if(tab.getPosition()==0){
                   plusIcon.setVisibility(View.VISIBLE);

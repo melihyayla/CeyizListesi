@@ -36,6 +36,9 @@ import com.ceyizlistesi.ceyizlistesi.Product;
 import com.ceyizlistesi.ceyizlistesi.ProductDetail;
 import com.ceyizlistesi.ceyizlistesi.R;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class DiscoverFragment extends Fragment {
     //ImageView add_plus_icon;
     private SwipeRefreshLayout mSwipeRefreshLayout;
@@ -79,10 +82,21 @@ public class DiscoverFragment extends Fragment {
 
         checkInternetConnection();
 
+        LinkedList<LinearLayout> linearLayouts = new LinkedList<>();
+        for(int i=0; i<6; i++){
+            if(i%2==0){
+                linearLayouts.add(createdLinearLayout(parentListLinearLayout));
+            }
+
+            createImageProduct(linearLayouts.get(i/2),"normal","Urun"+i,"Loop Denemesi");
+        }
 
         LinearLayout demo = createdLinearLayout(parentListLinearLayout);
 
-        createImageProduct(demo, "normal", "Deneme", "Denedim oluyor");
+        //LinearLayout demo2 = createdLinearLayout(parentListLinearLayout);
+
+
+        createImageProduct(demo, "advert", "Deneme", "Denedim oluyor");
 
         createImageProduct(demo, "empty", "Deneme", "Denedim olmuyor UZUUUUUUZZZZZZZZZN");
 
