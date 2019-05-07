@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     public ImageView plusIcon;
     private static Context context;
     private static Activity activity;
+    SectionsPagerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,16 +68,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-      tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
           @Override
           public void onTabSelected(TabLayout.Tab tab) {
 
 
-              if(isNetworkAvailable()){
-                 // Toast.makeText(MainActivity.this, "Internet is Available", Toast.LENGTH_SHORT).show();
-              }
-              else
-                  //Toast.makeText(MainActivity.this, "No internet Connection", Toast.LENGTH_SHORT).show();
+              DiscoverFragment discoverFragment = (DiscoverFragment) adapter.getItem(0);
+              discoverFragment.checkInternetConnection();
+
+
 
                if(tab.getPosition()==0){
                   plusIcon.setVisibility(View.VISIBLE);
@@ -114,6 +115,30 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void setClickableFalse(View view) {
+        if (view != null) {
+            view.setClickable(false);
+            if (view instanceof ViewGroup) {
+                ViewGroup vg = ((ViewGroup) view);
+                for (int i = 0; i < vg.getChildCount(); i++) {
+                    setClickableFalse(vg.getChildAt(i));
+                }
+            }
+        }
+    }
+
+    public void setClickableTrue(View view) {
+        if (view != null) {
+            view.setClickable(true);
+            if (view instanceof ViewGroup) {
+                ViewGroup vg = ((ViewGroup) view);
+                for (int i = 0; i < vg.getChildCount(); i++) {
+                    setClickableTrue(vg.getChildAt(i));
+                }
+            }
+        }
+    }
+
 
     public synchronized static Context getAppContext() {
         return MainActivity.context;
@@ -142,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void setupViewPager(ViewPager viewPager) {
-        SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        adapter = new SectionsPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new DiscoverFragment());
         adapter.addFragment(new ChestFragment());
         adapter.addFragment(new NotificationsFragment());

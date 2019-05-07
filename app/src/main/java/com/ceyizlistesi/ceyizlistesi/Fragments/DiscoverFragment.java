@@ -31,6 +31,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ceyizlistesi.ceyizlistesi.Helper.CustomScrollView;
 import com.ceyizlistesi.ceyizlistesi.MainActivity;
 import com.ceyizlistesi.ceyizlistesi.Product;
 import com.ceyizlistesi.ceyizlistesi.ProductDetail;
@@ -42,9 +43,10 @@ import java.util.List;
 public class DiscoverFragment extends Fragment {
     //ImageView add_plus_icon;
     private SwipeRefreshLayout mSwipeRefreshLayout;
-    private LinearLayout connectionLinearLayout,followCountLinearLayout, parentListLinearLayout;
-    private ScrollView scrollViewFeed;
+    private LinearLayout connectionLinearLayout,followCountLinearLayout, parentListLinearLayout, noInternetLayout, unicornLayout;
+    private com.ceyizlistesi.ceyizlistesi.Helper.CustomScrollView scrollViewFeed;
     private TextView followCount;
+    public String deneme = "Deneme";
 
 
     @Nullable
@@ -59,6 +61,8 @@ public class DiscoverFragment extends Fragment {
         connectionLinearLayout = view.findViewById(R.id.connection_internet_linear_layout);
         parentListLinearLayout = view.findViewById(R.id.parent_list_linear_layout);
         mSwipeRefreshLayout = view.findViewById(R.id.swipe_container);
+        noInternetLayout = view.findViewById(R.id.no_internet__linear_layout);
+        unicornLayout = view.findViewById(R.id.unicorn_linear_layout);
         scrollViewFeed = view.findViewById(R.id.scroll_view_feed);
         followCount = view.findViewById(R.id.follow_count);
         followCountLinearLayout = view.findViewById(R.id.follow_count_linear_layout);
@@ -82,6 +86,16 @@ public class DiscoverFragment extends Fragment {
 
         checkInternetConnection();
 
+
+
+
+
+
+        return view;
+    }
+
+    public void generateProducts(){
+        parentListLinearLayout.removeAllViews();
         LinkedList<LinearLayout> linearLayouts = new LinkedList<>();
         for(int i=0; i<6; i++){
             if(i%2==0){
@@ -99,25 +113,28 @@ public class DiscoverFragment extends Fragment {
         createImageProduct(demo, "advert", "Deneme", "Denedim oluyor");
 
         createImageProduct(demo, "empty", "Deneme", "Denedim olmuyor UZUUUUUUZZZZZZZZZN");
-
-
-
-        return view;
     }
-
 
     public void checkInternetConnection(){
 
         if(((MainActivity)getActivity()).isNetworkAvailable()){
             //add_plus_icon.setVisibility(View.VISIBLE);
+            generateProducts();
             connectionLinearLayout.setVisibility(View.GONE);
-            scrollViewFeed.setEnabled(true);
+            scrollViewFeed.setEnableScrolling(true);
+            noInternetLayout.setVisibility(View.GONE);
+            parentListLinearLayout.setVisibility(View.VISIBLE);
+            unicornLayout.setVisibility(View.VISIBLE);
+
 
         }
         else{
             //add_plus_icon.setVisibility(View.GONE);
             connectionLinearLayout.setVisibility(View.VISIBLE);
-            scrollViewFeed.setEnabled(false);
+            scrollViewFeed.setEnableScrolling(false);
+            noInternetLayout.setVisibility(View.VISIBLE);
+            unicornLayout.setVisibility(View.GONE);
+            parentListLinearLayout.setVisibility(View.GONE);
         }
 
     }
