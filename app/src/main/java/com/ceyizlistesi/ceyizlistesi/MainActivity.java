@@ -7,6 +7,9 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Handler;
+import android.os.Message;
+import android.support.constraint.solver.widgets.ConstraintAnchor;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.ViewPager;
@@ -23,6 +26,9 @@ import com.ceyizlistesi.ceyizlistesi.Fragments.ChestFragment;
 import com.ceyizlistesi.ceyizlistesi.Fragments.DiscoverFragment;
 import com.ceyizlistesi.ceyizlistesi.Fragments.NotificationsFragment;
 import com.ceyizlistesi.ceyizlistesi.Fragments.UserFragment;
+import com.ceyizlistesi.ceyizlistesi.Helper.ConnectivityChangeReceiver;
+import com.ceyizlistesi.ceyizlistesi.Helper.InternetCheckListener;
+import com.ceyizlistesi.ceyizlistesi.Helper.IsInternetConnected;
 import com.ceyizlistesi.ceyizlistesi.Helper.SectionsPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
     private static Context context;
     private static Activity activity;
     SectionsPagerAdapter adapter;
-
+    private TabLayout tabLayout;
+    DiscoverFragment discoverFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
         MainActivity.context = getApplicationContext();
         MainActivity.activity = this;
+
+
 
         mSectionsPageAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
@@ -50,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         mViewPager =  findViewById(R.id.container);
         setupViewPager(mViewPager);
 
-        final TabLayout tabLayout = findViewById(R.id.tabs);
+        tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
 
@@ -64,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(3).setIcon(R.drawable.selector_user);
         tabLayout.getTabAt(2).setIcon(R.drawable.selector_notifications);
 
+        discoverFragment = (DiscoverFragment) adapter.getItem(0);
+
 
 
 
@@ -73,12 +84,11 @@ public class MainActivity extends AppCompatActivity {
           public void onTabSelected(TabLayout.Tab tab) {
 
 
-              DiscoverFragment discoverFragment = (DiscoverFragment) adapter.getItem(0);
-              discoverFragment.checkInternetConnection();
 
 
 
-               if(tab.getPosition()==0){
+
+              if(tab.getPosition()==0){
                   plusIcon.setVisibility(View.VISIBLE);
 
               }
@@ -115,6 +125,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
     public void setClickableFalse(View view) {
         if (view != null) {
             view.setClickable(false);
@@ -139,6 +151,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void setTabLayoutClickable(Boolean flag){
+        if(flag)
+            setClickableTrue(tabLayout);
+        else
+            setClickableFalse(tabLayout);
+    }
+
 
     public synchronized static Context getAppContext() {
         return MainActivity.context;
@@ -153,19 +172,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public boolean isNetworkAvailable() {
-        ConnectivityManager manager =
-                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = manager.getActiveNetworkInfo();
-        boolean isAvailable = false;
-        if (networkInfo != null && networkInfo.isConnected()) {
-            isAvailable = true;
-        }
-        return isAvailable;
-    }
-
-
-
     private void setupViewPager(ViewPager viewPager) {
         adapter = new SectionsPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new DiscoverFragment());
@@ -174,4 +180,9 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new UserFragment());
         viewPager.setAdapter(adapter);
     }
+
+
+
+
+
 }
