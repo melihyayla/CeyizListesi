@@ -45,7 +45,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class DiscoverFragment extends Fragment {
-    //ImageView add_plus_icon;
+    ImageView plusIcon;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private LinearLayout connectionLinearLayout,followCountLinearLayout, parentListLinearLayout, noInternetLayout, unicornLayout;
     private com.ceyizlistesi.ceyizlistesi.Helper.CustomScrollView scrollViewFeed;
@@ -59,10 +59,10 @@ public class DiscoverFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_discover,container,false);
 
-        ImageView plusIcon = getActivity().findViewById(R.id.share_plus_button);
+        plusIcon = view.findViewById(R.id.share_plus_button);
         plusIcon.setVisibility(View.VISIBLE);
 
-        //add_plus_icon = view.findViewById(R.id.add_icon_center);
+
         connectionLinearLayout = view.findViewById(R.id.connection_internet_linear_layout);
         parentListLinearLayout = view.findViewById(R.id.parent_list_linear_layout);
         mSwipeRefreshLayout = view.findViewById(R.id.swipe_container);
@@ -82,6 +82,7 @@ public class DiscoverFragment extends Fragment {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        checkInternetConnection();
                         mSwipeRefreshLayout.setRefreshing(false);
                         followCountLinearLayout.setVisibility(View.GONE);
                         followCount.setVisibility(View.GONE);
@@ -94,7 +95,7 @@ public class DiscoverFragment extends Fragment {
 
 
 
-
+        checkInternetConnection();
 
 
         return view;
@@ -123,10 +124,10 @@ public class DiscoverFragment extends Fragment {
         createImageProduct(demo, "empty", "Deneme", "Denedim olmuyor UZUUUUUUZZZZZZZZZN");
     }
 
-    public void checkInternetConnection(boolean flag){
+    public void checkInternetConnection(){
 
-        if(flag){
-            //add_plus_icon.setVisibility(View.VISIBLE);
+        if(isNetworkAvailable()){
+            plusIcon.setVisibility(View.VISIBLE);
             generateProducts();
             connectionLinearLayout.setVisibility(View.GONE);
             scrollViewFeed.setEnableScrolling(true);
@@ -138,7 +139,7 @@ public class DiscoverFragment extends Fragment {
 
         }
         else{
-            //add_plus_icon.setVisibility(View.GONE);
+            plusIcon.setVisibility(View.GONE);
             connectionLinearLayout.setVisibility(View.VISIBLE);
             scrollViewFeed.setEnableScrolling(false);
             noInternetLayout.setVisibility(View.VISIBLE);

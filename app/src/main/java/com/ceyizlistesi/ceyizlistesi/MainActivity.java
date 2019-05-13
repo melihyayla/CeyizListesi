@@ -1,46 +1,32 @@
 package com.ceyizlistesi.ceyizlistesi;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Handler;
-import android.os.Message;
-import android.support.constraint.solver.widgets.ConstraintAnchor;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.ceyizlistesi.ceyizlistesi.Fragments.ChestFragment;
 import com.ceyizlistesi.ceyizlistesi.Fragments.DiscoverFragment;
 import com.ceyizlistesi.ceyizlistesi.Fragments.NotificationsFragment;
 import com.ceyizlistesi.ceyizlistesi.Fragments.UserFragment;
-import com.ceyizlistesi.ceyizlistesi.Helper.ConnectivityChangeReceiver;
-import com.ceyizlistesi.ceyizlistesi.Helper.InternetCheckListener;
-import com.ceyizlistesi.ceyizlistesi.Helper.IsInternetConnected;
 import com.ceyizlistesi.ceyizlistesi.Helper.SectionsPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
     private SectionsPagerAdapter mSectionsPageAdapter;
     private ViewPager mViewPager;
-    public ImageView plusIcon;
+
     private static Context context;
     private static Activity activity;
     SectionsPagerAdapter adapter;
     private TabLayout tabLayout;
-    DiscoverFragment discoverFragment;
+    //DiscoverFragment discoverFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         mSectionsPageAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-        plusIcon = findViewById(R.id.share_plus_button);
-        plusIcon.setVisibility(View.GONE);
+
 
         mViewPager =  findViewById(R.id.container);
         setupViewPager(mViewPager);
@@ -73,29 +58,14 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(3).setIcon(R.drawable.selector_user);
         tabLayout.getTabAt(2).setIcon(R.drawable.selector_notifications);
 
-        discoverFragment = (DiscoverFragment) adapter.getItem(0);
+        //discoverFragment = (DiscoverFragment) adapter.getItem(0);
 
-
-
-
+        //discoverFragment.checkInternetConnection();
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
           @Override
           public void onTabSelected(TabLayout.Tab tab) {
 
-
-
-
-
-
-              if(tab.getPosition()==0){
-                  plusIcon.setVisibility(View.VISIBLE);
-
-              }
-
-              else{
-                   plusIcon.setVisibility(View.GONE);
-               }
 
           }
 
@@ -109,16 +79,6 @@ public class MainActivity extends AppCompatActivity {
           public void onTabReselected(TabLayout.Tab tab) {
 
               int position = tab.getPosition();
-
-              if(position==0){
-                 plusIcon.setVisibility(View.VISIBLE);
-
-              }
-              else
-                  plusIcon.setVisibility(View.GONE);
-
-
-
 
           }
       });
