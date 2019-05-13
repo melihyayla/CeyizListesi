@@ -60,14 +60,14 @@ public class IntroSlider extends AppIntro {
 
             setSkipTextTypeface("fonts/gordita_medium.otf");
 
-            //setBarColor(Color.rgb( 255,255,255));
+           
 
             setIndicatorColor(Color.rgb( 71,65,103),Color.parseColor("#CCCCFF"));
             setNextArrowColor(Color.parseColor("#CCCCFF"));
             setColorDoneText(Color.rgb(144,97 ,255));
             setColorSkipButton(Color.rgb(144 ,97 ,255));
 
-            setDoneText("BASLA");
+            setDoneText("BAŞLA");
 
             setDoneTextTypeface("fonts/gordita_medium.otf");
 

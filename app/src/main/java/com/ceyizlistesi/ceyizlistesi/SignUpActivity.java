@@ -64,7 +64,7 @@ public class SignUpActivity extends AppCompatActivity {
         mailAdressLinearLayout = findViewById(R.id.mail_address_linear_layout);
         passwordLinearLayout = findViewById(R.id.password_linear_layout);
 
-        mailEditText = findViewById(R.id.mail_address_edit_text);
+        mailEditText = findViewById(R.id.username_edit_text);
         passwordEditText = findViewById(R.id.password_edit_text);
 
         eyeActiveImageView = findViewById(R.id.eye_active_image_view);
